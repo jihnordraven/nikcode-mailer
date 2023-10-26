@@ -1,4 +1,4 @@
-FROM node-alpine.17.3
+FROM node:latest
 
 WORKDIR /app
 
@@ -12,4 +12,4 @@ COPY . .
 
 RUN yarn build
 
-CMD ["yarn", "prod"]
+CMD ["yarn", "start:prod"]
