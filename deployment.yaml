@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nikcode-mailer-deployment
+  labels:
+    app: nikcode-mailer-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nikcode-mailer
+  template:
+    metadata:
+      labels:
+        app: nikcode-mailer
+    spec:
+      containers:
+        - name: nikcode-mailer-container
+          image: jihnordraven/nikcode-mailer:latest
