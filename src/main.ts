@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core'
 import { AppModule } from './app.module'
 import { MicroserviceOptions, Transport } from '@nestjs/microservices'
-import dotenv from 'dotenv'
+import * as dotenv from 'dotenv'
 import { INestMicroservice, InternalServerErrorException, Logger } from '@nestjs/common'
 import { blue, red } from 'colorette'
 
@@ -18,10 +18,10 @@ const bootstrap = async (): Promise<void> => {
 			transport: Transport.RMQ,
 			options: {
 				urls: [RMQ_HOST],
-				queue: RMQ_QUEUE,
-				queueOptions: {
-					durable: true
-				}
+				queue: 'mailer'
+				// queueOptions: {
+				// 	durable: true
+				// }
 			}
 		})
 
